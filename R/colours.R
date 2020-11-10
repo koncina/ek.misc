@@ -13,3 +13,10 @@ colours_cms <- function() {
 colours_bwr <- function() {
   c(blue = "#377EB8", "white", red = "#E41A1C")
 }
+
+#' Colour code used for the INTER grant application to plot the expression of genes of interest in epithelial vs CAF cells.
+#'
+#' @export
+colours_caf <- function(epithelium = "epithelium", caf = "caf") {
+  set_names(c("#dcd6ca", "#0A2083"), c(epithelium, caf))
+}
