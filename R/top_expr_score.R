@@ -4,7 +4,6 @@ NULL
 #'
 #' (See the CAF signature repository for more details)
 #'
-#' @importFrom stats ks.test
 #' @param z_scores vector of numericals containing the z-scores of gene signatures.
 #' @param scale logical telling if the score should be returned as a raw value or scaled
 #' @export
@@ -21,7 +20,6 @@ top_expressor_score <- function(z_scores, scale = FALSE) {
 #'
 #' (See the CAF signature repository for more details)
 #'
-#' @importFrom stats ks.test
 #' @param z_scores vector of numericals containing the z-scores of gene signatures.
 #' @param threshold numerical telling the proportion of signature genes that should be highly expressed
 #' @export
