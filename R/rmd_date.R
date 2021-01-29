@@ -1,12 +1,13 @@
 NULL
 
-#' @importFrom fs path_split
+#' @importFrom fs path_split path_abs
 #' @importFrom purrr flatten_chr
 #' @importFrom stringr str_extract
 #'
 #' @export
 created <- function(rmd = NULL) {
   if (is.null(rmd)) rmd <- current_input(dir = TRUE)
+  rmd <- path_abs(rmd)
   creation_date <- path_split(rmd)
   creation_date <- flatten_chr(creation_date)
   creation_date <- creation_date[length(creation_date) - 1]
