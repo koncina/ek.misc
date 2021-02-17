@@ -2,16 +2,17 @@ NULL
 
 #' @importFrom fs path_split path_abs
 #' @importFrom purrr flatten_chr
-#' @importFrom stringr str_extract
+#' @importFrom stringr str_extract_all
 #'
 #' @export
 created <- function(rmd = NULL) {
   if (is.null(rmd)) rmd <- current_input(dir = TRUE)
   rmd <- path_abs(rmd)
-  creation_date <- path_split(rmd)
-  creation_date <- flatten_chr(creation_date)
-  creation_date <- creation_date[length(creation_date) - 1]
-  str_extract(creation_date, "^\\d{4}-\\d{2}-\\d{2}")
+  #creation_date <- path_split(rmd)
+  #creation_date <- flatten_chr(creation_date)
+  #creation_date <- creation_date[length(creation_date) - 1]
+  creation_date <- str_extract_all(rmd, "\\d{4}-\\d{2}-\\d{2}")
+  unlist(creation_date)[-1]
   #as.Date(creation_date)
 }
 
@@ -22,7 +23,6 @@ created <- function(rmd = NULL) {
 last_change <- function(rmd = NULL) {
   if (is.null(rmd)) rmd <- current_input(dir = TRUE)
   x <- as.Date(file_info(rmd)[['change_time']], format = "%m/%d/%Y")
-  message(x)
   x
   #possibly(parse_datetime, otherwise = c(change_time = NA_character_))(possibly(file_info, otherwise = c(change_time = NA_character_))()[['change_time']])
 }
