@@ -12,7 +12,8 @@ created <- function(rmd = NULL) {
   #creation_date <- flatten_chr(creation_date)
   #creation_date <- creation_date[length(creation_date) - 1]
   creation_date <- str_extract_all(rmd, "\\d{4}-\\d{2}-\\d{2}")
-  unlist(creation_date)[-1]
+  x <- unlist(creation_date)
+  x[length(x)]
   #as.Date(creation_date)
 }
 
@@ -40,12 +41,12 @@ last_change <- function(rmd = NULL) {
 #' @param created NULL or character which will be parsed as the creation date
 #'
 #' @export
-last_updated <- function(created = NULL) {
-  if (is.null(created)) created <- created()
+last_updated <- function(created = NULL, rmd = NULL) {
+  if (is.null(created)) created <- created(rmd)
   created <- parse_date(created)
 
   dates <- c(created = created,
-             last_changed = last_change(),
+             last_changed = last_change(rmd),
              created = Sys.Date()
   )
 
