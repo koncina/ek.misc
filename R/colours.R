@@ -17,6 +17,13 @@ colours_bwr <- function() {
 #' Colour code used for the INTER grant application to plot the expression of genes of interest in epithelial vs CAF cells.
 #'
 #' @export
-colours_caf <- function(epithelium = "epithelium", caf = "caf") {
-  set_names(c("#dcd6ca", "#0A2083"), c(epithelium, caf))
+colours_caf <- function(epithelium = "epithelium",
+                        nf = "NF", caf = "CAF",
+                        mcaf = "mCAF",
+                        cycaf1 = "cyCAF-1", cycaf2 = "cyCAF-2") {
+  set_names(c("#dcd6ca", "#4CAEF3", "#0A2083",
+              "#fc8d62", "#66c2a5", "#8da0cb"),
+            c(epithelium, nf, caf,
+              mcaf, cycaf1, cycaf2))
 }
+
