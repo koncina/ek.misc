@@ -4,7 +4,14 @@
 \alias{colours_caf}
 \title{Colour code used for the INTER grant application to plot the expression of genes of interest in epithelial vs CAF cells.}
 \usage{
-colours_caf(epithelium = "epithelium", caf = "caf")
+colours_caf(
+  epithelium = "epithelium",
+  nf = "NF",
+  caf = "CAF",
+  mcaf = "mCAF",
+  cycaf1 = "cyCAF-1",
+  cycaf2 = "cyCAF-2"
+)
 }
 \description{
 Colour code used for the INTER grant application to plot the expression of genes of interest in epithelial vs CAF cells.

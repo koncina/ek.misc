@@ -1,7 +1,7 @@
 Package: ek.misc
 Type: Package
 Title: Miscellaneous helper functions
-Version: 0.0.0.9000
+Version: 0.0.1.9000
 Authors@R: person("Eric", "Koncina", email = "mail@koncina.eu", role = c("aut", "cre"))
 Description: Miscellaneous helper functions.
 License: GPL-3
@@ -16,4 +16,4 @@ Imports: crayon,
   readr,
   stringr,
   survival
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3

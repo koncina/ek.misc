@@ -4,7 +4,7 @@
 \alias{last_updated}
 \title{Cluster a tibble}
 \usage{
-last_updated(created = NULL)
+last_updated(created = NULL, rmd = NULL)
 }
 \arguments{
 \item{created}{NULL or character which will be parsed as the creation date}
