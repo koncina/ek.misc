@@ -1,25 +1,24 @@
 
-#' @importFrom fs dir_create
+#' @importFrom fs dir_create path_home
 #'
 #' @export
-get_report_path <- function(filename, folder = "reports") {
-  stopifnot(length(folder) == 1)
+path_report <- function(filename) {
 
   f <- file.path(path_home("Documents"),
-            "reports",
-            file.path(get_rel_path(remove = 0), filename))
+                 "reports",
+                 file.path(get_rel_path(remove = 0), filename))
 
   dir_create(dirname(f))
   f
 }
 
 #' @importFrom fs dir_create
+#' @importFrom rappdirs user_data_dir
 #'
 #' @export
-get_data_path <- function(filename, folder = "data") {
-  stopifnot(length(folder) == 1)
-  f <- shared_path(folder,
-                   file.path(get_rel_path(remove = 0), filename))
+path_data <- function(filename) {
+  f <- file.path(user_data_dir("data"),
+                 get_rel_path(remove = 0), filename)
 
   dir_create(dirname(f))
   f
@@ -50,10 +49,10 @@ rel_project <- function(marker_file = ".projects", from = TRUE) {
   }
 }
 
-#' @importFrom rappdirs user_data_dir
-#'
-shared_path <- function(share_folder, filename) {
-  f <- file.path(user_data_dir(share_folder), filename)
-  dir_create(dirname(f))
-  f
-}
+#' #' @importFrom rappdirs user_data_dir
+#' #'
+#' path_shared <- function(share_folder, filename) {
+#'   f <- file.path(user_data_dir(share_folder), filename)
+#'   dir_create(dirname(f))
+#'   f
+#' }
